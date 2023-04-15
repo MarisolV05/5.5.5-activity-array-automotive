@@ -1,10 +1,57 @@
 //this includes the vehicle class as a module
-const VehicleModule = require("./vehicleBaseClass")
+const VehicleModule = require("./vehicle").Vehicle
 
 //this shows how to call from this module...
-let v = new VehicleModule.Vehicle("Mercury", "Sedan", "1965", "color", "mileage");
-console.log(v.make)
+class Car extends VehicleModule {
+    constructor(make, model, year, color, mileage){
+        super(make, model, year, color, mileage);
+        this.maxPassenger = 5;
+        this.passenger = 0;
+        this.numberofwheels = 4;
+        this.maxSpeed = 160;
+        this.fuel = 10;
+        this.scheduleService = false;
+    }
 
+
+    start() {
+        if (this.fuel > 0){
+            console.log("Engine Started");
+            return this.started = true
+        } else {
+            console.log("No Fuel");
+            return this.started = false;
+        }
+    }
+
+    checkService(){
+        if(this.mileage > 3000) {
+            this.scheduleService = true
+            return this.scheduleService;
+        }
+    }
+    loadpassenger(num) {
+        if (this.passenger < this.maxPassenger) {
+            if((num + this.passenger) <= this.maxPassenger) {
+                this.passenger = num;
+                return this.passenger;
+            } else {
+                console.log(this.model + " " + this.make + "not enough space");
+
+            }
+        } else {
+            console.log(this.model(this.model + " " + this.make + "is full");
+        }
+        }
+
+}
+let myCar = new Car ('mercury', 'rad_sedan', '2002', 'white', 50000)
+
+
+myCar.start()
+myCar.loadpassenger
+myCar.Stop()
+myCar.checkService
 
 //After you write the derived Car class, you should test it out.
 
