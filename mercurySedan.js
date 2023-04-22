@@ -1,6 +1,5 @@
 //this includes the vehicle class as a module
-const VehicleModule = require("./vehicle").Vehicle
-
+const VehicleModule = require("./vehicleBaseClass").V
 //this shows how to call from this module...
 class Car extends VehicleModule {
     constructor(make, model, year, color, mileage){
@@ -40,7 +39,7 @@ class Car extends VehicleModule {
 
             }
         } else {
-            console.log(this.model(this.model + " " + this.make + "is full");
+            console.log(this.model + " " + this.make + "is full");
         }
         }
 
